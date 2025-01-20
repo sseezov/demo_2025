@@ -1,0 +1,61 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI';
+  font-size: 18px;
+}
+
+p {
+  margin: 0;
+}
+
+.partners-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  border: 1px solid black;
+  width: 700px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.partner-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 700px;
+  justify-content: space-around;
+  border: 1px solid black;
+  justify-content: space-between;
+}
+
+.partner-card:hover {
+  background-color: #67BA80;
+  cursor: pointer;
+
+}
+
+.card_heading {
+  font-size: 22px;
+  align-self: start;
+}
+
+.page-heading {
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+  gap: 50px;
+}
+
+.page-logo {
+  width: 120px;
+}
+
+.partner-data {
+  display: flex;
+  flex-direction: column;
+  margin: 14px 40px;
+}
