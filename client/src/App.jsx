@@ -28,7 +28,7 @@ function App() {
               </div>
             </div>
             <div className="partner-sale partner-data card_heading">
-              sale
+              {partner.discount}%
             </div>
           </li>
         })}
