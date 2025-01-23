@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { Link } from "react-router";
 
 function App() {
   const [partners, setPartners] = useState([]);
@@ -8,19 +9,20 @@ function App() {
       const res = await axios.get('/partners')
       setPartners(res.data)
     })();
+    document.title = 'Партнеры'
   }, [])
   console.log(partners)
   return (
     <>
-    <div className="page-heading">
-      <img className="page-logo" src="./Мастер пол.png" alt="" />
-      <h1>Партнеры</h1>
-    </div>
+      <div className="page-heading">
+        <img className="page-logo" src="./Мастер пол.png" alt="" />
+        <h1>Партнеры</h1>
+      </div>
       <ul className="partners-list">
         {partners.map((partner) => {
           return <li className="partner-card" key={partner.id}>
             <div className="partner-data">
-                <p className="card_heading">{partner.organization_type} | {partner.name}</p>
+              <p className="card_heading">{partner.organization_type} | {partner.name}</p>
               <div className="partner-data-info">
                 <p>{partner.ceo}</p>
                 <p>{partner.phone}</p>
@@ -33,6 +35,12 @@ function App() {
           </li>
         })}
       </ul>
+
+      <Link to={'/create'}>
+        <button>
+          Создать партнера
+        </button>
+      </Link>
     </>
   )
 }

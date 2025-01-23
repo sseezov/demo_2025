@@ -59,3 +59,13 @@ p {
   flex-direction: column;
   margin: 14px 40px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
