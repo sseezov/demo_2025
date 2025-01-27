@@ -2,19 +2,26 @@ import axios from "axios"
 import { useEffect } from "react"
 
 export default function CreatePartner() {
+  const messages = {
+    ok: 'Успех!\nПользователь успешно добавлен!',
+    error: 'Ошибка!\nПользователь с таким именем уже существует!'
+  }
   useEffect(() => { document.title = 'Создать партнера' }, [])
   async function submitHandler(e) {
     e.preventDefault()
     const partner = {
       type: e.target.type.value,
       name: e.target.name.value,
-      CEO: e.target.CEO.value,
+      ceo: e.target.CEO.value,
       email: e.target.email.value,
       phone: e.target.phone.value,
-      adress: e.target.address.value,
+      address: e.target.address.value,
       rating: e.target.rating.value
     }
-    await axios.post('/partners', partner);
+    const res = await axios.post('/partners', partner);
+
+    document.querySelector('form').reset()
+    alert(messages[res.data])
   }
 
   return <div className="form">

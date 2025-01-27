@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
+
 
 function App() {
+  const navigate = useNavigate();
   const [partners, setPartners] = useState([]);
   useEffect(() => {
     (async () => {
@@ -20,7 +23,7 @@ function App() {
       </div>
       <ul className="partners-list">
         {partners.map((partner) => {
-          return <li className="partner-card" key={partner.id}>
+          return <li className="partner-card" key={partner.id} onClick={() => { navigate('/update', { state: { partner } }) }}>
             <div className="partner-data">
               <p className="card_heading">{partner.organization_type} | {partner.name}</p>
               <div className="partner-data-info">

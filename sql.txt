@@ -2,17 +2,17 @@ CREATE TABLE partners
 (
     id serial,
     organization_type text,
-    name text NOT NULL,
-    ceo text NOT NULL,
-    email text NOT NULL,
-    phone text NOT NULL,
-    legal_address text NOT NULL,
-    tax_id text NOT NULL,
-    rating integer NOT NULL,
+    name text UNIQUE,
+    ceo text,
+    email text,
+    phone text,
+    address text,
+    tax_id text,
+    rating integer,
     PRIMARY KEY (id)
 );
 
-INSERT INTO partners (organization_type, name, ceo, email, phone, legal_address, tax_id, rating)
+INSERT INTO partners (organization_type, name, ceo, email, phone, address, tax_id, rating)
 VALUES 
 ('ЗАО', 'База Строитель', 'Иванова Александра Ивановна', 'aleksandraivanova@ml.ru', '493 123 45 67', '652050, Кемеровская область, город Юрга, ул. Лесная, 15', '2222455179', 7),
 ('ООО', 'Паркет 29', 'Петров Василий Петрович', 'vppetrov@vl.ru', '987 123 56 78', '164500, Архангельская область, город Северодвинск, ул. Строителей, 18', '3333888520', 7),
@@ -44,8 +44,8 @@ CREATE TABLE sales
     id serial NOT NULL,
     product_id integer REFERENCES products(id) NOT NULL,
     partner_id integer REFERENCES partners(id) NOT NULL,
-    production_quantity bigint NOT NULL,
-    date_of_sale DATE NOT NULL,
+    production_quantity bigint,
+    date_of_sale DATE,
     PRIMARY KEY (id)
 );
 
